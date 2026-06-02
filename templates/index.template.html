@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{seo.title}}</title>
+    <meta name="description" content="{{seo.description}}" />
+    <meta name="keywords" content="{{seo.keywords}}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f7f1e9;
+        --bg-alt: #f1e4d5;
+        --ink: #2a1f18;
+        --muted: #6d5343;
+        --card: #fffdfa;
+        --card-strong: #f3e6d8;
+        --accent: #9a5a3a;
+        --accent-dark: #6b3d27;
+        --line: #e6d2be;
+        --success: #2f6f5a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "DM Sans", Arial, sans-serif;
+        background:
+          radial-gradient(circle at 85% 12%, #ead4bd 0, transparent 30%),
+          radial-gradient(circle at 8% 92%, #f0dcc8 0, transparent 35%),
+          var(--bg);
+        color: var(--ink);
+      }
+      .container { width: min(1140px, 92vw); margin: 0 auto; }
+      html { scroll-behavior: smooth; }
+      section[id] { scroll-margin-top: 108px; }
+      a { color: inherit; text-decoration: none; }
+      .top-strip {
+        background: #2f2018;
+        color: #f7ece4;
+        font-size: 0.78rem;
+      }
+      .top-strip .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 0;
+        flex-wrap: wrap;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 253, 248, 0.95);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 12px 0 10px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 220px;
+      }
+      .brand-logo { width: 42px; height: 42px; }
+      .brand-text strong { display: block; font-size: 0.92rem; }
+      .brand-text small { color: var(--muted); font-size: 0.72rem; }
+      .menu {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 0.86rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+      .menu a:hover { color: var(--ink); }
+      .btn {
+        background: linear-gradient(140deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-weight: 700;
+        box-shadow: 0 8px 16px rgba(107, 61, 39, 0.28);
+      }
+      main { padding-top: 14px; }
+      section { padding: 42px 0; }
+      .hero {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 34px;
+        align-items: center;
+      }
+      .hero .photo-wrap {
+        background: linear-gradient(180deg, #efe2d3, #f4e9dc);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 12px;
+        box-shadow: 0 14px 28px rgba(42, 31, 24, 0.14);
+      }
+      .hero .photo-wrap img {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+      .name-card {
+        margin-top: -22px;
+        margin-left: 20px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px 16px;
+        max-width: 240px;
+        box-shadow: 0 10px 22px rgba(42, 31, 24, 0.12);
+      }
+      .hero-copy {
+        display: grid;
+        gap: 14px;
+      }
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        padding: 7px 12px;
+        border-radius: 999px;
+        background: var(--card-strong);
+        border: 1px solid var(--line);
+        color: var(--accent-dark);
+        font-weight: 700;
+        font-size: 0.78rem;
+      }
+      h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(2.15rem, 4.3vw, 3.25rem);
+        margin: 0;
+        line-height: 1.06;
+      }
+      p { margin: 0; color: var(--muted); line-height: 1.55; }
+      .hero-points {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .hero-point {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 0.86rem;
+      }
+      .hero-point b { color: var(--ink); display: block; font-size: 0.83rem; margin-bottom: 2px; }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 6px 18px rgba(42, 31, 24, 0.06);
+      }
+      .card h3 { margin: 0 0 6px; font-size: 1.02rem; }
+      .card p { margin: 0; }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .section-head h2 {
+        margin: 0;
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: 1.9rem;
+      }
+      .section-head p { max-width: 560px; }
+      .about-banner {
+        background: linear-gradient(135deg, #f2e4d3, #ecd6bf);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 18px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 18px;
+      }
+      .about-banner strong { font-size: 1.05rem; display: block; margin-bottom: 6px; }
+      .about-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .about-badges span {
+        background: #fff8f0;
+        border: 1px solid #ddc4aa;
+        border-radius: 999px;
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: #5c3f2f;
+      }
+      details {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 13px 14px;
+      }
+      summary { cursor: pointer; font-weight: 700; }
+      .stack { display: grid; gap: 12px; }
+      .faq-layout {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 18px;
+      }
+      .contact-panel {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .contact-panel h3 { margin-top: 0; }
+      .contact-panel p { margin: 0 0 10px; }
+      .contact-social {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .social-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff8f0;
+        border: 1px solid var(--line);
+        color: var(--accent-dark);
+      }
+      .social-btn:hover {
+        background: var(--card-strong);
+      }
+      .social-btn svg {
+        width: 22px;
+        height: 22px;
+      }
+      #contact a { color: var(--accent-dark); font-weight: 700; }
+      footer {
+        background: #2f2018;
+        color: #f7ede5;
+        padding: 34px 0;
+        margin-top: 36px;
+      }
+      .footer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      @media (max-width: 900px) {
+        .hero, .grid3, .footer-grid, .faq-layout, .about-banner { grid-template-columns: 1fr; }
+        .hero-points { grid-template-columns: 1fr; }
+        nav { align-items: flex-start; }
+        section[id] { scroll-margin-top: 126px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-strip">
+      <div class="container">
+        <span>Atendimento on-line para todo o Brasil</span>
+        <span>Foco em saúde suplementar, urgência e cobertura negada</span>
+      </div>
+    </div>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="brand">
+            <img class="brand-logo" src="assets/img/logo-jade.svg" alt="{{brand.siteName}}" />
+            <div class="brand-text">
+              <strong>{{brand.siteName}}</strong>
+              <small>{{brand.tagline}}</small>
+            </div>
+          </div>
+          <div class="menu">{{nav.items}}</div>
+          <a class="btn" href="{{nav.cta.href}}">{{nav.cta.label}}</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="home" class="hero">
+        <div>
+          <div class="photo-wrap">
+            <img src="{{home.hero.image}}" alt="{{brand.professionalName}}" />
+          </div>
+          <div class="name-card">
+            <strong>{{home.hero.nameCard}}</strong>
+            <div><small>{{home.hero.oabCard}}</small></div>
+          </div>
+        </div>
+        <div class="hero-copy">
+          <span class="hero-kicker">Advocacia em Saúde • Alta Especialização</span>
+          <h1>{{home.hero.title}}</h1>
+          {{home.hero.paragraphs}}
+          <div class="hero-points">
+            <div class="hero-point"><b>Resposta rápida</b>Atendimento prioritário em casos urgentes.</div>
+            <div class="hero-point"><b>Estratégia personalizada</b>Plano jurídico claro para cada cenário.</div>
+            <div class="hero-point"><b>Atuação técnica</b>Foco em documentação médica e prova robusta.</div>
+            <div class="hero-point"><b>Acompanhamento próximo</b>Atualizações objetivas durante todo o processo.</div>
+          </div>
+          <p><a class="btn" href="{{home.hero.buttonHref}}">{{home.hero.buttonLabel}}</a></p>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="section-head">
+          <h2>{{services.title}}</h2>
+          <p>Soluções jurídicas para pacientes e famílias que precisam de acesso rápido a tratamento, cirurgia, medicação e proteção contratual.</p>
+        </div>
+        <div class="grid3">{{services.items}}</div>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <h2>Diferenciais</h2>
+          <p>Estrutura consultiva e atuação contenciosa com foco em segurança técnica e decisão rápida.</p>
+        </div>
+        <div class="about-banner">
+          <div>
+            <strong>Atuação orientada por resultado e proteção do paciente</strong>
+            <p>Da análise documental ao pedido de urgência, cada etapa é organizada para maximizar clareza e efetividade jurídica.</p>
+          </div>
+          <div class="about-badges">
+            <span>Urgência judicial</span>
+            <span>Planos de saúde</span>
+            <span>Erro médico</span>
+            <span>Reajuste abusivo</span>
+          </div>
+        </div>
+        <div class="grid3">
+          <article class="card">
+            <h3>Atendimento humanizado</h3>
+            <p>Escuta ativa, estratégia personalizada e comunicação clara em cada etapa.</p>
+          </article>
+          <article class="card">
+            <h3>Resposta ágil</h3>
+            <p>Atuação rápida para casos urgentes de saúde, com foco em resultado prático.</p>
+          </article>
+          <article class="card">
+            <h3>Atuação especializada</h3>
+            <p>Foco em saúde suplementar, negativa de cobertura e demandas médico-hospitalares.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="section-head">
+          <h2>{{faq.title}}</h2>
+          <p>Principais perguntas para orientar sua decisão com segurança.</p>
+        </div>
+        <div class="faq-layout">
+          <div class="stack">{{faq.items}}</div>
+          <aside class="contact-panel">
+            <h3>Precisa de avaliação jurídica?</h3>
+            <p>Se houver negativa de cobertura ou reajuste elevado, solicite uma análise rápida do seu caso.</p>
+            <p><a class="btn" href="{{contact.whatsapp}}" target="_blank" rel="noopener noreferrer">Solicitar atendimento</a></p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contato</h2>
+        <p>E-mail: <a href="mailto:{{contact.email}}">{{contact.email}}</a></p>
+        <div class="contact-social">
+          <a class="social-btn" href="{{contact.whatsapp}}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.7 4.82-1.26A10 10 0 1 0 12 2Zm0 18.18a8.14 8.14 0 0 1-4.13-1.12l-.3-.18-2.86.75.76-2.79-.2-.3A8.2 8.2 0 1 1 12 20.18Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.4-.12-.57.12-.17.24-.66.8-.81.97-.15.17-.3.19-.55.06-.25-.12-1.06-.39-2.02-1.23-.75-.67-1.26-1.49-1.4-1.74-.15-.24-.02-.38.1-.5.1-.1.25-.27.37-.4.12-.13.16-.23.24-.38.08-.15.04-.29-.02-.4-.06-.12-.57-1.37-.78-1.88-.2-.49-.4-.42-.57-.43h-.49c-.17 0-.45.06-.68.31-.23.24-.88.86-.88 2.1s.9 2.45 1.02 2.62c.13.17 1.76 2.7 4.26 3.78.6.26 1.08.41 1.45.52.61.2 1.17.17 1.61.1.49-.07 1.46-.6 1.67-1.17.2-.57.2-1.06.14-1.17-.06-.11-.22-.17-.47-.29Z"/>
+            </svg>
+          </a>
+          <a class="social-btn" href="{{contact.instagram}}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">{{footer.columns}}</div>
+        <p>{{footer.copyright}}</p>
+      </div>
+    </footer>
+  </body>
+</html>

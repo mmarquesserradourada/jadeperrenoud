@@ -1,0 +1,11 @@
+{
+  "name": "jadeperrenoudadvogada-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "python3 -m http.server 8090 --directory .",
+    "preview:editable": "python3 -m http.server 8091 --directory editable-preview"
+  }
+}

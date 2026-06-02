@@ -1,0 +1,13 @@
+{
+  "items": [
+    { "label": "HOME", "href": "#home" },
+    { "label": "SERVIÇOS", "href": "#services" },
+    { "label": "DIFERENCIAIS", "href": "#about" },
+    { "label": "DÚVIDAS", "href": "#faq" },
+    { "label": "CONTATO", "href": "#contact" }
+  ],
+  "cta": {
+    "label": "Fale Comigo",
+    "href": "#contact"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "copyright": "© 2026 Jade Perrenoud Advocacia. Todos os direitos reservados.",
+  "columns": [
+    {
+      "title": "Contato",
+      "links": [
+        { "label": "WhatsApp", "href": "https://wa.me/5512991866922" },
+        { "label": "E-mail", "href": "mailto:contato@jadeperrenoudadvogada.com.br" }
+      ]
+    },
+    {
+      "title": "Redes",
+      "links": [
+        { "label": "Instagram", "href": "https://www.instagram.com/jade.perrenoud/" }
+      ]
+    }
+  ]
+}

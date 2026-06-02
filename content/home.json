@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Conheça a sua advogada",
+    "paragraphs": [
+      "Dra. Jade Perrenoud é bacharel em Direito e atua em demandas de saúde com foco estratégico e humano.",
+      "Atendimento personalizado para negativa de plano de saúde, reajuste abusivo e acesso a tratamentos.",
+      "Compromisso com clareza, agilidade e defesa técnica em cada caso."
+    ],
+    "buttonLabel": "Entre em contato",
+    "buttonHref": "#contact",
+    "image": "assets/jade.png",
+    "nameCard": "Jade Perrenoud",
+    "oabCard": "OAB/SP 520.547"
+  }
+}
