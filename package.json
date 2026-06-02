@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:vercel": "npm run build && rm -rf public && mkdir -p public && cp editable-preview/index.html public/index.html && cp favicon.png public/favicon.png && cp -r assets public/assets && ([ -d blog ] && cp -r blog public/blog || true)",
     "dev": "python3 -m http.server 8090 --directory .",
     "preview:editable": "python3 -m http.server 8091 --directory editable-preview"
   }
